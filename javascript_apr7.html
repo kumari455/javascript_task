@@ -6,9 +6,84 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Objects</h1>
     <script>
-    alert("hello")
+        //1
+    let student={
+        id:"18047",
+        name:"kumari",
+        course:"fullstack"
+    }
+    console.log(student);
+
+    
+    //2
+    function book(title,author,price){
+        this.title=title;
+        this.author=author;
+        this.price=price;
+    }
+    let b=new book("from indian cindrella","kumari",250);
+    let b1=new book("from chinese cindrella","Adeline yen mah",300);
+    console.log(b);
+    console.log(b1);
+
+
+    //3
+    let address={
+        add:"thiruvannamalai"
+    }
+    let contact={
+        cell:9746634381
+    }
+    let assign=Object.assign(address,contact);
+    let spread={...address,...contact};
+
+    console.log(assign);
+    console.log(spread);
+
+    //4
+    let person={
+        name:"priya",
+        age:22
+    }
+    Object.freeze(person);
+    console.log(person.name);
+    console.log(person.age);
+
+    person.name="kumari"
+    console.log(person.name);
+
+
+    //5
+    let emp={
+        name:"kruthi",
+        age:20,
+        salary:20000
+    }
+    let key=Object.keys(emp);
+    console.log(key);
+
+    //6
+    let twoD=Object.entries(emp);
+    console.log(twoD);
+
+    //7
+    for(let arr in emp){
+        console.log(arr+":"+emp[arr]);
+        
+    }
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
         
     </script>
 </body>
