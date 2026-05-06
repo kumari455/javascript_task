@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation</title>
+</head>
+<body>
+    <h1>Encapsulation</h1>
+    <script>
+        //1
+        class Employee{
+            #salary=1000;
+
+            constructor(name, salary){
+                this.name=name;
+                this.#salary=salary;
+            }
+            display(){
+                console.log(this.#salary);
+                
+            }
+            withdraw(amount){
+                if(this.#salary>=amount){
+                    this.#salary-=amount;
+
+                    console.log("Balance amount",this.#salary);
+                }else{
+                    console.log("Insufficient balance");
+                    
+                }
+                    
+                }
+            }
+            let emp=new Employee("Priya",30000);
+            console.log(emp.salary);
+
+            emp.withdraw(50000);
+            emp.display();
+
+
+            //2
+            let arr=[1,2];
+            let arr2=[3,4];
+            let arr3=[...arr,...arr2];
+            console.log(arr3);
+            
+            //3
+            function course(...name){
+                console.log(...name);
+                
+            }
+            course("python","java","c++");
+            
+
+            //4
+            let val={
+                acadamy:"FIIT",
+                branch:"TVM"
+            }
+            let val2={
+                software:"Python"
+            }
+            let val3={...val,...val2}
+            console.log(val3);
+
+
+
+            //5
+            let person={
+                name:"Priya",
+                age:26
+            }
+            let{name,age}=person;
+            console.log(name);
+            console.log(age);
+
+
+            //6
+            let str=`Hello, my name is Arun and I study Python full stack.`
+            console.log(str);
+            
+            
+            
+    </script>
+</body>
+</html>
