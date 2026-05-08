@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Events</title>
+    <style>
+        div{
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dom Events</h1>
+    <p id="box" class="hide"></p>
+    <button id="but"></button>
+
+    <form id="formm" action="./Encapsulation.html">
+        <input type="text" placeholder="Enter your name">
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+    </ul>
+    <h2 id="head"></h2>
+    <h2 id="head2"></h2>
+    <button id="new">Click me</button>
+
+    <div id="togg">
+        Click below button
+    </div>
+    <button id="togbut">Click</button>
+
+    <script>
+        //1
+        let but= document.getElementById("but");
+        but.textContent="Click me"
+        console.log(but.innerText);
+
+        let box=document.getElementById("box");
+        let bot=document.getElementsByClassName("hide").textContent="this is the paragraph";
+        console.log(bot.innerText);
+        
+
+        but.addEventListener("click", function(){
+            box.classList.add("hide")
+        });
+
+        //2
+        document.getElementById("formm").onsubmit=function(){
+            alert("Form submitted");
+            
+        }
+        //3
+        let query=document.querySelectorAll("ul > li");
+        console.log(query);
+        
+
+        //4
+        document.getElementById("head").innerText="<b>hello</>";
+        document.getElementById("head2").innerHTML="<b>hello</b>";  
+        
+        //5
+        const butt=document.getElementById("new");
+        butt.addEventListener("mouseover", function(){
+            butt.style.background="blue";
+        });
+        butt.addEventListener("mouseout", function(){
+            butt.style.background="";
+        });
+
+        //6
+        const cont=document.getElementById("togg");
+        const con=document.getElementById("togbut");
+
+        con.addEventListener("click", function(){
+            cont.classList.toggle("hidden");
+        });
+
+        //7
+        document.addEventListener("keydown", function(){
+            console.log(event.key);
+            
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>
