@@ -5,47 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Challenge</title>
 </head>
-<style>
-     #itemInput {
-      padding: 8px;
-      width: 250px;
-    }
-
-    #addBtn {
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-
-    ul {
-      margin-top: 20px;
-      padding: 0;
-      list-style: none;
-    }
-
-    li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px;
-      margin-bottom: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    li.completed {
-      text-decoration: line-through;
-      color: grey;
-      background: whitesmoke
-    }
-
-    .delete-btn {
-      margin-left: auto;
-      padding: 4px 8px;
-      cursor: pointer;
-    }
-  </style>
-</head>
 <body>
   <input type="text" id="itemInput" placeholder="Enter an item" />
   <button id="addBtn">Add Item</button>
@@ -70,10 +29,8 @@
 
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
-      deleteBtn.className = "delete-btn";
 
       deleteBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
         li.remove();
       });
 
