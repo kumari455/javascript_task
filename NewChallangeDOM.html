@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challange task</title>
+    <style>
+        #container{
+            border: 1px solid black;
+            width: 300px;
+            padding:10px;
+            
+            
+        }
+        #res{
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h4 id="res">Result:</h4>
+
+        <form onsubmit="return false" >
+        <h2>Number 1:</h2>
+        <input id="inp1" type="number" placeholder="Enter First Number">
+        <br>
+        <h2>Number 2:</h2>
+        <input id="inp2" type="number" placeholder="Enter Second Number">
+        <br>
+        <h2>Operator</h2>
+        <select name="choose" id="choose">
+            <option value="">Choose Operator</option>
+            <option value="Add">Add(+)</option>
+            <option value="Minus">Minus(-)</option>
+            <option value="Multiply">Multiply(*)</option>
+            <option value="Divide">(/)</option>
+        </select>
+        <br>
+        <br>
+        
+        <button onclick="calculate()">Calculate</button>
+        <button type="reset">Reset</button>
+        <br>
+        <br>
+    </form>
+
+        <script>
+
+            let inp1 =Number(document.getElementById("inp1"));
+            let inp2= Number(document.getElementById("inp2"));
+            let selected = document.getElementById("choose");
+            let resultDom = document.getElementById("res");
+
+            
+            
+            function calculate(){
+
+                console.log(inp1);
+                console.log(inp2);
+                console.log(selected.value);
+                console.log(typeof(inp1));
+                console.log(typeof(inp2));
+                
+                
+                let result ;
+                
+                switch(selected.value){
+                    case "Minus":
+                        result = inp1-inp2;
+                        break;
+                    case "Add":
+                        result=inp1+inp2;
+                        break;
+                    case "Multiply":
+                        result=inp1*inp2;
+                        break;
+                    case "Divide":
+                        result=inp1/inp2;
+                        break;
+
+                }
+
+                resultDom.innerText =`Result - ${result}`;          
+
+            }
+
+
+            // let input1=document.getElementById("inp1");
+            // let input2=document.getElementById("inp2");
+            // let choose=document.getElementById("choose");
+            // let calculate=document.getElementById("subbtn");
+            // let result=document.getElementById("res");
+            // let submit=document.getElementById("submit");
+
+
+            // submit.addEventListener("onsubmit", function(){
+            //     const value=input1+input2;
+
+            // let rest=document.createElement("h3");  
+            // rest.textContent=value;
+
+            // result.appendChild(rest);
+            // input.value="";
+            // input.focus();
+            //      });
+        </script>
+    </div>
+</body>
+</html>
