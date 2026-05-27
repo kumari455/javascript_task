@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Promise and Callback</h1>
+
+    <script>
+        class customer{
+            static welcome(){
+                console.log("Welcome");
+            }
+        }
+        function placeOrder(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    let stockAvailable=true;
+
+                if(stockAvailable){
+                    resolve("Order Placed Successfully")
+                }else{
+                    reject("Out Of Stock");
+                }
+                }, 5000);
+                
+            });
+        }
+        customer.welcome();
+        placeOrder()
+        .then((result)=>console.log(result))
+        .then((result)=>console.log("Confirm Order"))
+        .then((result)=>console.log("Process Payment"))
+        .then((result)=>console.log("Ship Order"))
+
+        .catch((result)=>console.log(result));
+     
+    </script>
+</body>
+</html>
