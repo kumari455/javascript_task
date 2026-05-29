@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List Manager</title>
+</head>
+<body>
+    <h1>ToDo List Manager with Async Fetch</h1>
+    <ul id="cont"></ul>
+
+    <script>
+           async function fetchDatta() {
+            return "Data fetched";
+        }
+           async function displayData() {
+            const data = await fetchDatta();
+           console.log(data);
+        }
+        displayData();
+
+        
+        const container=document.getElementById("cont");
+        async function fetchdata() {
+            try{
+            const result= await fetch(
+                "https://jsonplaceholder.typicode.com/todos"
+            );
+
+            const data=await result.json();
+            container.innerHTML=`<h2>${data.id}</h2> <h2>${data.title}</h2>`;
+            data.slice(0,10).forEach(element => {
+                
+                 const list=document.createElement("li");
+                 list.textContent=element.title;
+
+                 if(!element.completed){
+                     list.style.textDecoration="line-through";
+                 }
+                 container.appendChild(list);
+            });
+            console.log(result);
+            console.log(data);
+            localStorage.setItem("data",JSON.stringify(data));
+           // console.log(JSON.parse(localStorage.getItem("data")));
+            
+        }catch(error){
+          console.log(error);
+          
+        }
+            
+        }
+
+        fetchdata();
+        function fetchapi(){
+            return new Promise((resolve)=>{
+                setTimeout(()=>{
+                    resolve(1);
+                },3000);
+            });
+        }
+        Promise.all([fetchdata(), fetchapi()]).then((res)=>
+        console.log(res),
+    );
+    </script>
+</body>
+</html>
