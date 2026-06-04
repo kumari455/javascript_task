@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <h1>BOM in JS</h1>
+    <form action=""return validateform()>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <button type="submit">Submit</button>
+    </form>
+    <button id="joke">Next Joke</button>
+    <p id="cont"></p>
+
+    <script>
+        const content=document.getElementById("cont");
+        const button=document.getElementById("joke");
+        function validateform(){
+            const namefield=document.getElementById("name").value;
+            sessionStorage.setItem("namefield");
+        }
+        async function fetchdata(){
+            try{
+                const result=await fetch("https://icanhazdadjoke.com/slack");
+                console.log(result);
+
+
+                const data=await result.json();
+                console.log(data);
+                console.log(data.attachments[0].text);
+                
+                content.textContent=data.attachments[0].text;
+        document.cookie=data.attachments[0].text;
+
+                
+                
+                
+            }catch(error){
+              console.log(error.message);
+              
+            }
+        }
+        button.addEventListener("click", ()=>{
+            fetchdata();
+        });
+                console.log(Math.random(fetchdata));
+</script>
+</body>
+</html>
